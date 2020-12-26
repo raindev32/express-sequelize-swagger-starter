@@ -1,0 +1,66 @@
+{
+  "name": "express-sequelize-swagger-starter",
+  "version": "1.0.0",
+  "description": "express-sequelize-swagger-starter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-api": "better-npm-run start-api",
+    "start-dev": "better-npm-run start-api-dev",
+    "lint": "eslint --fix --ext .js src"
+  },
+  "betterScripts": {
+    "start-api": {
+      "command": "node dist/bin/server.js --exec babel-node",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    },
+    "start-api-dev": {
+      "command": "nodemon src/bin/server.js --exec babel-node",
+      "env": {
+        "DEBUG": "app:*"
+      }
+    }
+  },
+  "keywords": [
+    "express-sequelize-swagger-starter"
+  ],
+  "author": "jhony-rainn",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "better-npm-run": "^0.1.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-swagger-generator": "^1.1.17",
+    "ip": "^1.1.5",
+    "mariadb": "^2.4.2",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.22.3",
+    "sequelize-cli": "^6.2.0",
+    "uuid": "^8.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "nodemon": "^2.0.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0"
+  }
+}

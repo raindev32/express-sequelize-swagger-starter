@@ -24,13 +24,11 @@ Using Technologies :
 
 - Install the dependencies
 
-  `npm install `
-  `yarn add `
+  `npm install ` OR `yarn install `
 
 - Run development
 
-  `npm start-dev`
-  `yarn start-dev`
+  `npm start-dev` OR `yarn start-dev`
 
 ------------------------------------------------
 Enjoy and Hope it's usefull for you.

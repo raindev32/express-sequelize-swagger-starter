@@ -3,6 +3,7 @@
 ## Description
 
 This repository, hope can help u developing backend faster than before becuase this project already structural. just need to settingup some.
+No required Auth feature yet, Authentication Feature ( on progress & research )
 
 Using Technologies :
 - Express JS
@@ -29,6 +30,10 @@ Using Technologies :
 - Run development
 
   `npm start-dev` OR `yarn start-dev`
+
+- Run documentation swagger
+
+  `Example: http://localhost:5000/api-docs`
 
 ------------------------------------------------
 Enjoy and Hope it's usefull for you.

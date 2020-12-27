@@ -27,6 +27,7 @@ import {
  * @consumes application/json
  * @returns {ApiResponse.model} 200 - An array object of user info
  * @returns {ApiError.model} 422 - User not found!
+ * @security JWT
  */
 exports.getData = async (req, res, next) => {
    try {
@@ -87,7 +88,8 @@ exports.getDataId = async (req, res, next) => {
  * @produces application/json
  * @consumes application/json
  * @returns {ApiResponse.model} 200 - An object of user info
- * @returns {ApiError.model} 422 - Failed to login
+ * @returns {ApiError.model} 422 - Failed to create user
+ * @security JWT
  */
 exports.createData = async (req, res, next) => {
    try {

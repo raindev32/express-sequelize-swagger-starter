@@ -28,6 +28,7 @@ import { extractTokenProfile } from '../../services/securityService'
  * @consumes application/json
  * @returns {ApiResponse.model} 200 - An array object of user info
  * @returns {ApiError.model} 422 - Role not found!
+ * @security JWT
  */
 exports.getRole = async (req, res, next) => {
    try {
@@ -87,6 +88,7 @@ exports.getById = async (req, res, next) => {
  * @consumes application/json
  * @returns {ApiResponse.model} 200 - An object of user info
  * @returns {ApiError.model} 422 - Failed to login
+ * @security JWT
  */
 exports.createData = async (req, res, next) => {
    const data = req.body

@@ -11,6 +11,10 @@ Using Technologies :
 - Api Docs : Swagger.
 - etc
 
+API Available :
+- User
+- Roles
+
 ## How to use
 
 - clone this repository 

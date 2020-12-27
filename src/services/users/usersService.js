@@ -11,9 +11,7 @@ User.belongsTo(Role, {
 
 
 export const getDataAllUser = () => {
-   return User.findAll({
-      include: ['roles']
-   })
+   return User.findAll()
 }
 
 export const getUserById = (id) => {

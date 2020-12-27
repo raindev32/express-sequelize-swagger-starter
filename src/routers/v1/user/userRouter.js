@@ -12,7 +12,7 @@ const url = '/api/v1/user'
 
 router.get(url, getData)
 router.get(`${url}/:id`, getDataId)
-router.post(url, createData)
+router.post(`${url}/create`, createData)
 router.put(`${url}/:id`, updateData)
 router.delete(`${url}/:id`, deleteData)
 

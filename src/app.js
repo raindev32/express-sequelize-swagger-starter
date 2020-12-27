@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import routes from './routers';
 import cors from 'cors'
 import errorHandler from 'errorhandler'
-import project from '../config/project.config'
+import project from '../config/config.json'
 import customErrorHandler from './middleware/errorHandler'
 
 const app = express()

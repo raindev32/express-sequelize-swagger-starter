@@ -15,7 +15,7 @@ import { extractTokenProfile } from '../../services/securityService'
 /**
  * get all roles
  * @route GET /api/v1/role
- * @group Roles - Roles
+ * @group Roles - Api Documentation
  * @param {string} q.query - Query using keyword to all column
  * @param {integer} page.query - Offset of data - eg: 1
  * @param {integer} pageSize.query - Setup limit to selected data - eg: 10

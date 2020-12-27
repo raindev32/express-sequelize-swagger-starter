@@ -14,7 +14,7 @@ import {
 /**
  * get all user
  * @route GET /api/v1/user
- * @group User - User
+ * @group User - Api Documentation
  * @param {string} q.query - Query using keyword to all column
  * @param {integer} page.query - Offset of data - eg: 1
  * @param {integer} pageSize.query - Setup limit to selected data - eg: 10

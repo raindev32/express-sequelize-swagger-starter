@@ -12,8 +12,10 @@ Using Technologies :
 - etc
 
 API Available :
+- Auth
 - User
 - Roles
+- Image uploader - Coming Soon.
 
 ## How to use
 

@@ -1,4 +1,4 @@
-import sequelize from 'native/sequelize'
+import sequelize from '../native/sequelize'
 import Sequelize from 'sequelize'
 
 const { Op } = Sequelize

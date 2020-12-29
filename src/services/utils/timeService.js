@@ -1,4 +1,4 @@
-import sequelize from 'native/sequelize'
+import sequelize from '../../native/sequelize'
 
 export const getCurrentTime = async () => {
   const currentTime = await sequelize.query('select current_timestamp() as time', {

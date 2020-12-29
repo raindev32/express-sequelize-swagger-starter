@@ -1,26 +1,24 @@
+import { extractTokenProfile } from '../../services/securityService'
 import {
   login,
-  registerPhone,
-  registerEmail
+  register
 } from '../../services/auth/authService'
+import { getUserById } from '../../services/users/usersService'
 import {
   ApiResponse,
   ApiError
 } from '../../services/errorHandlingService'
+import project from '../../../config/project.config'
+
+// import { getDataId as getCityDataById } from '../../services/regional/cityService'
 
 /**
  * @typedef ResponseUserInfo
- * @property {string} fistName.required - firstName - eg: John
- * @property {string} lastName.required - firstName - eg: Lee
- * @property {boolean} gender.required - gender (1 for male 0 for woman) - eg: 1
- * @property {string} address - user address
- * @property {string} email - User Email - eg: user@gmail.com
- * @property {string} codeArea - phone code area
- * @property {string} phone - phone number
+ * @property {string} name.required - name - eg: John
+ * @property {string} phone_number.required - phone_number - eg: 08227297****
+ * @property {string} email - email - eg: user@gmail.com
  * @property {string} birth.required - birth date
- * @property {boolean} emailVerified.required - email verified status
- * @property {boolean} phoneVerified.required - phone verified status
- * @property {string} lastLogin.required - user last login
+ * @property {boolean} gender.required - gender (1 for male 0 for woman) - eg: 1
  * @property {boolean} createdAt.required - created date
  * @property {boolean} updatedAt.required - updated date
  */
@@ -37,31 +35,29 @@ exports.getMyUser = async (req, res, next) => {
     const userLogIn = extractTokenProfile(req)
     const userData = await getUserById(userLogIn.id, true)
     if (userData) {
-      if (userData.image) {
-        userData.image = getImageUrl(userData.image)
-      }
-      if (userData && userData.storeId) {
-        const cityName = await getCityDataById(userData.storeId, true)
+      // if (userData.image) {
+      //   userData.image = getImageUrl(userData.image)
+      // }
+      // if (userData && userData.storeId) {
+      //   const cityName = await getCityDataById(userData.storeId, true)
 
-        if (cityName && cityName.name) {
-          userData.storeName = cityName.name
-        }
-      }
+      //   if (cityName && cityName.name) {
+      //     userData.storeName = cityName.name
+      //   }
+      // }
 
-      if (userData['memberUpgrade.memberType.image']) {
-        userData['memberUpgrade.memberType.image'] = getImageUrl(userData['memberUpgrade.memberType.image'])
-      }
-      const subscription = await getUserActiveSubscription(userLogIn.id, true)
-      if (subscription) {
-        const subscriptionFiltered = subscription.filter(filtered => filtered.id)
-        if (subscriptionFiltered && subscriptionFiltered.length > 0) {
-          userData.subscription = subscriptionFiltered[0]
-        } else {
-          userData.subscription = {}
-        }
-      }
-      delete userData.banned
-      delete userData.bannedUntil
+      // if (userData['memberUpgrade.memberType.image']) {
+      //   userData['memberUpgrade.memberType.image'] = getImageUrl(userData['memberUpgrade.memberType.image'])
+      // }
+      // const subscription = await getUserActiveSubscription(userLogIn.id, true)
+      // if (subscription) {
+      //   const subscriptionFiltered = subscription.filter(filtered => filtered.id)
+      //   if (subscriptionFiltered && subscriptionFiltered.length > 0) {
+      //     userData.subscription = subscriptionFiltered[0]
+      //   } else {
+      //     userData.subscription = {}
+      //   }
+      // }
       next(new ApiResponse(res, 200, userData, {}))
     } else {
       next(new ApiError(404, 'User not found!'))
@@ -112,23 +108,18 @@ exports.register = async (req, res, next) => {
     role_id
   }
 
-  if (req.body.phone_number && req.body.email) {
-    const registerDataPhone = await registerPhone(userData, next)
-    const registerDataEmail = await registerEmail(userData, next)
-
-    if (registerDataPhone && registerDataEmail) {
-      next(new ApiResponse(res, 201, { message: 'Account created' }))
-    } else {
-      next(new ApiError(409, 'Email or phone already exists'))
-    }
-  }
   if (!req.body.email && !req.body.phone) {
-    next(new ApiError(409, 'Email or phone cannot be null'))
+    next(new ApiError(409, 'Email or phone can\'t be null'))
+  } else {
+    const registerData = await register(userData, next)
+
+    if (registerData) {
+      next(new ApiResponse(res, 201, { message: 'Account created' }))
+    }
+    next(new ApiError(409, 'Failed to register users'))
   }
 
 }
-
-
 
 /**
  * @typedef UserLogin

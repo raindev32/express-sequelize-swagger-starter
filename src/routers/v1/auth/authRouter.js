@@ -1,14 +1,19 @@
 import express from 'express'
 import {
    login,
-   register
+   register,
+   getMyUser
 } from '../../../controllers/auth/authController'
+import project from '../../../../config/project.config'
+
+import { requireAuth } from '../../../services/users/usersService'
 
 const router = express.Router();
-const url = '/api/v1/auth'
+const url = `${project.api_prefix}/auth`
 
 // Login
 router.post(`${url}/login`, login)
+router.get(`${url}/me`, requireAuth, getMyUser)
 
 // Register
 router.post(`${url}/register`, register)

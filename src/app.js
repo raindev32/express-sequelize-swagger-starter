@@ -6,6 +6,8 @@ import errorHandler from 'errorhandler'
 import project from '../config/config.json'
 import customErrorHandler from './middleware/errorHandler'
 
+require('./utils/passport') // Setup passport strategies for authentication
+
 const app = express()
 
 const expressSwagger = require('express-swagger-generator')(app)

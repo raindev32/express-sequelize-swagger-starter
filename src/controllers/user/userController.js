@@ -73,24 +73,6 @@ exports.getDataId = async (req, res, next) => {
    }
 }
 
-/**
- * User Register
- * @typedef UserRegister
- * @property {string} name.required - name - eg: user
- * @property {integer} age.required - age - eg: 99
- * @property {integer} role_id.required - role_id (1 for admin 0 for user) - eg: 0
- */
-/**
- * To create new user using email
- * @route POST /api/v1/user/create
- * @group User - Application register
- * @param {UserRegister.model} request.body.required - data for request
- * @produces application/json
- * @consumes application/json
- * @returns {ApiResponse.model} 200 - An object of user info
- * @returns {ApiError.model} 422 - Failed to create user
- * @security JWT
- */
 exports.createData = async (req, res, next) => {
    try {
       const create = await createData(req.body)

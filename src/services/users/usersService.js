@@ -1,3 +1,4 @@
+import passport from 'passport'
 import db from '../../models'
 
 const User = db.users
@@ -9,6 +10,7 @@ User.belongsTo(Role, {
    sourceKey: 'role_id'
 })
 
+export const requireAuth = passport.authenticate('jwt', { session: false })
 
 export const getDataAllUser = () => {
    return User.findAll()

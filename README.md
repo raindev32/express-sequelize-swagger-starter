@@ -6,16 +6,19 @@ This repository, hope can help u developing backend faster than before becuase t
 No required Auth feature yet, Authentication Feature ( on progress & research )
 
 Using Technologies :
-- Express JS
-- Sequelize
-- Api Docs : Swagger.
-- etc
+* Express JS
+* Sequelize
+* Api Docs : Swagger.
+* etc
 
 API Available :
-- Auth
-- User
-- Roles
-- Image uploader - Coming Soon.
+* Auth
+  - Login by account
+  - Login Google - coming soon.
+  - Login Facebook - coming soon.
+* User
+* Roles
+* Image uploader - coming soon.
 
 ## How to use
 

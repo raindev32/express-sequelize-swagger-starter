@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'roles',
     paranoid: false,
-    timestamp: false
+    timestamp: false,
+    underscored: true
   })
   Roles.associate = (models) => {
     Roles.hasMany(models.users, {

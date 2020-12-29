@@ -11,19 +11,36 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(44),
         allowNull: false
       },
-      age: {
-        type: DataTypes.INTEGER(4),
+      phone_number: {
+        type: DataTypes.STRING(12),
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING(44),
+        allowNull: false
+      },
+      birth: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      gender: {
+        type: DataTypes.INTEGER(2),
         allowNull: false
       },
       role_id: {
         type: DataTypes.INTEGER(11),
+        allowNull: false
+      },
+      password: {
+        type: DataTypes.STRING,
         allowNull: false
       }
     },
     {
       tableName: 'users',
       paranoid: false,
-      timestamp: false
+      timestamp: true,
+      underscored: true
     }
   );
   User.associate = (models) => {

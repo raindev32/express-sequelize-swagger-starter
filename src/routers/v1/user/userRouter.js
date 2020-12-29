@@ -6,14 +6,17 @@ import {
    updateData,
    deleteData
 } from '../../../controllers/user/userController'
+import project from '../../../../config/project.config'
+
+import { requireAuth } from '../../../services/users/usersService'
 
 const router = express.Router();
-const url = '/api/v1/user'
+const url = `${project.api_prefix}/user`
 
-router.get(url, getData)
-router.get(`${url}/:id`, getDataId)
-router.post(`${url}/create`, createData)
-router.put(`${url}/:id`, updateData)
-router.delete(`${url}/:id`, deleteData)
+router.get(url, requireAuth, getData)
+router.get(`${url}/:id`, requireAuth, getDataId)
+router.post(`${url}/create`, requireAuth, createData)
+router.put(`${url}/:id`, requireAuth, updateData)
+router.delete(`${url}/:id`, requireAuth, deleteData)
 
 export default router;

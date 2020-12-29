@@ -45,7 +45,10 @@
     "sequelize": "^5.8.7",
     "uuid": "^3.3.2",
     "jsonwebtoken": "^8.5.1",
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

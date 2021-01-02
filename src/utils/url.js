@@ -1,4 +1,4 @@
-import project from 'config/project.config'
+import project from '../../config/project.config'
 
 const getImageUrl = (route) => {
   return {

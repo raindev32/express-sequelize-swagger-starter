@@ -38,6 +38,8 @@ const config = {
    db_dialect: process.env.DB_DIALECT,
    db_logging: process.env.DB_LOGGING,
 
+   image_url: process.env.IMAGE_HOST ? `${process.env.IMAGE_PROTOCOL}://${process.env.IMAGE_HOST}:${process.env.IMAGE_PORT}${process.env.IMAGE_VERSION}/` : 'https://storage.googleapis.com:443/wievent/',
+
    auth_by: process.env.AUTH_BY,
    auth_secret: process.env.AUTH_SECRET,
    auth_expire: process.env.AUTH_EXPIRE,

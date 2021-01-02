@@ -1,3 +1,4 @@
+import { getImageUrl } from '../../utils/url'
 import { extractTokenProfile } from '../../services/securityService'
 import {
   login,
@@ -35,9 +36,9 @@ exports.getMyUser = async (req, res, next) => {
     const userLogIn = extractTokenProfile(req)
     const userData = await getUserById(userLogIn.id, true)
     if (userData) {
-      // if (userData.image) {
-      //   userData.image = getImageUrl(userData.image)
-      // }
+      if (userData.image) {
+        userData.image = getImageUrl(userData.image)
+      }
       // if (userData && userData.storeId) {
       //   const cityName = await getCityDataById(userData.storeId, true)
 

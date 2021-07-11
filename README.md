@@ -32,6 +32,8 @@ API Available :
 
 - Make mysql database
 
+- Do sequelize init
+
 - Migrate models table structure from directory migrations
   `sequelize db:migrate`
 

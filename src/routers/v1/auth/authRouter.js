@@ -1,15 +1,28 @@
 import express from 'express'
 import {
-   login,
-   register,
-   getMyUser
+  login,
+  register,
+  getMyUser
 } from '../../../controllers/auth/authController'
 import project from '../../../../config/project.config'
 
 import { requireAuth } from '../../../services/users/usersService'
 
-const router = express.Router();
+const router = express.Router()
 const url = `${project.api_prefix}/auth`
+
+// const multer = require('multer')
+
+// const storage = multer.diskStorage({
+//   destination (req, file, cb) {
+//     cb(null, './assets/')
+//   },
+//   filename (req, file, cb) {
+//     cb(null, file.originalname)
+//   }
+// })
+
+// const upload = multer({ storage })
 
 // Login
 router.post(`${url}/login`, login)
@@ -23,4 +36,4 @@ router.post(`${url}/register`, register)
 // router.put(`${url}/:id`, updateData)
 // router.delete(`${url}/:id`, deleteData)
 
-export default router;
+export default router

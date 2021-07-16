@@ -38,6 +38,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT',
       },
+      photo: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       // facebook_id: {
       //   allowNull: true,
       //   autoIncrement: false,
